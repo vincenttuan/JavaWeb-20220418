@@ -14,11 +14,12 @@ public class BMIHttpServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		out.println("call by get");
-		// 抓到請求參數 h
-		String height = req.getParameter("h");
-		String weight = req.getParameter("w");
+		String height = req.getParameter("h"); // 抓到請求參數 h
+		String weight = req.getParameter("w"); // 抓到請求參數 w
 		out.println("<p>");
 		out.println("height = " + height);
 		out.println("<p>");
