@@ -33,7 +33,7 @@ public class AreaServlet extends HttpServlet {
 				+ "		<fieldset>\r\n"
 				+ "			<legend>圓面積與球體積</legend>\r\n"
 				+ "			半徑: " + r + "<br />" 
-				+ "			圓面積: " + String.format("%.2f", radius) + "<br />"
+				+ "			圓面積: " + String.format("%.2f", area) + "<br />"
 				+ "			球體積: " + String.format("%.2f", volume) + "<br />"
 				+ "		</fieldset>"
 				+ "	</form>");
