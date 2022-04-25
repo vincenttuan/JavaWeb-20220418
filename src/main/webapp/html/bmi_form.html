@@ -6,12 +6,20 @@
 </head>
 <body>
 	<h1>Call by get</h1>
-	<a href="/JavaWeb-20220418/servlet/bmi">
+	<a href="/JavaWeb-20220418/servlet/bmi?h=170&w=60">
 		/JavaWeb-20220418/servlet/bmi
 	</a>
 	<p />
-	<h1>Call by post</h1>
+	<h1>Call by get (form method="get")</h1>
+	<form method="get" action="/JavaWeb-20220418/servlet/bmi">
+		身高: <input type="text" name="h" value="170" /><br/>
+		體重: <input type="text" name="w" value="60" /><br/>
+		<input type="submit" />
+	</form>
+	<h1>Call by post (form method="post")</h1>
 	<form method="post" action="/JavaWeb-20220418/servlet/bmi">
+		身高: <input type="text" name="h" value="170" /><br/>
+		體重: <input type="text" name="w" value="60" /><br/>
 		<input type="submit" />
 	</form>
 </body>
