@@ -10,6 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
+// WebServlet 配置資訊
 @WebServlet("/servlet/lucky/number")
 public class LuckyNumberServlet extends GenericServlet {
 
