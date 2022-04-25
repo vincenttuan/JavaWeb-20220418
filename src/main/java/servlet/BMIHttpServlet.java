@@ -16,6 +16,13 @@ public class BMIHttpServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter out = resp.getWriter();
 		out.println("call by get");
+		// 抓到請求參數 h
+		String height = req.getParameter("h");
+		String weight = req.getParameter("w");
+		out.println("<p>");
+		out.println("height = " + height);
+		out.println("<p>");
+		out.println("weight = " + weight);
 	}
 
 	@Override
