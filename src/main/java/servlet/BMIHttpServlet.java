@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -34,6 +35,7 @@ public class BMIHttpServlet extends HttpServlet {
 		// 第二種方式 (支援陣列)
 		// 案例1: h=170&w=60 得到 170 與 60
 		// 案例2: h=170,171,172&w=60,61,62 得到 [170,171,172] 與 [60,61,62]
+		/*
 		Map<String, String[]> map = req.getParameterMap();
 		String[] heights = map.get("h");
 		String[] weights = map.get("w");
@@ -41,7 +43,21 @@ public class BMIHttpServlet extends HttpServlet {
 		out.println("heights = " + Arrays.toString(heights));
 		out.println("<p>");
 		out.println("weights = " + Arrays.toString(weights));
-		
+		*/
+		// 第三種方式 (支援陣列)
+		String[] heights = req.getParameterValues("h");
+		String[] weights = req.getParameterValues("w");
+		out.println("<p>");
+		out.println("heights = " + Arrays.toString(heights));
+		out.println("<p>");
+		out.println("weights = " + Arrays.toString(weights));
+		out.println("<p>");
+		// 得到所有參數名
+		Enumeration<String> names = req.getParameterNames();
+		out.println("得到參數名稱:");
+		while(names.hasMoreElements()) {
+			out.println(names.nextElement() + " ");
+		}
 	}
 
 	@Override
