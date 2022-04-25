@@ -8,6 +8,7 @@ import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebServlet;
 
 // WebServlet 配置資訊
 // 本程式的服務網址: 請參考 web.xml 的配置設定
