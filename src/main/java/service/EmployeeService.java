@@ -20,6 +20,7 @@ public class EmployeeService {
 	
 	public void addEmployee(Employee employee) {
 		employees.add(employee);
+		System.out.println(findAll());
 	}
 	
 	public CopyOnWriteArrayList<Employee> findAll() {
