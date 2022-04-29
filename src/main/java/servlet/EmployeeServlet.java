@@ -43,6 +43,13 @@ public class EmployeeServlet extends HttpServlet {
 		String empBirth = req.getParameter("empBirth");
 		String[] empLang = req.getParameterValues("empLang");
 		String empMemo = req.getParameter("empMemo");
+		
+		// Verify(驗證)
+		if(empName == null || empName.length() == 0) {
+			resp.sendError(500, "員工姓名不可空白");
+			return;
+		}
+		
 		out.print("empName = " + empName + "<br />");
 		out.print("empAge = " + empAge + "<br />");
 		out.print("empSex = " + empSex + "<br />");
