@@ -49,6 +49,12 @@ public class EmployeeServlet extends HttpServlet {
 			resp.sendError(500, "員工姓名不可空白");
 			return;
 		}
+		// 判斷 empAge 字串是否是數字 ?
+		boolean isNumeric = (empAge == null) ? false : empAge.chars().allMatch(Character::isDigit);
+		if(!isNumeric) {
+			resp.sendError(500, "員工年齡錯誤");
+			return;
+		}
 		
 		out.print("empName = " + empName + "<br />");
 		out.print("empAge = " + empAge + "<br />");
