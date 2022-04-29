@@ -50,7 +50,8 @@ public class EmployeeServlet extends HttpServlet {
 			return;
 		}
 		// 判斷 empAge 字串是否是數字 ?
-		boolean isNumeric = (empAge == null) ? false : empAge.chars().allMatch(Character::isDigit);
+		boolean isNumeric = (empAge == null || empAge.length() == 0) ? false : empAge.chars().allMatch(Character::isDigit);
+		
 		if(!isNumeric) {
 			resp.sendError(500, "員工年齡錯誤");
 			return;
