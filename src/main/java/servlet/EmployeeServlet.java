@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entity.Employee;
+
 /* 
  * 取得 employee_form.html 所傳來的資料
  * 呈現方式如下:
@@ -55,6 +57,10 @@ public class EmployeeServlet extends HttpServlet {
 				.entrySet()
 				.forEach(e -> out.print(e.getKey() + " = " + Arrays.toString(e.getValue()) + "<br />"));
 		//out.print(req.getParameterNames());
+		
+		// 將 form-data 注入 Employee 物件中
+		Employee employee = new Employee(empName, Integer.parseInt(empAge), empSex, empPos, empBirth, empLang, empMemo);
+		
 	}
 	
 	@Override
