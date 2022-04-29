@@ -8,13 +8,13 @@ import entity.Employee;
 public class EmployeeService {
 	private CopyOnWriteArrayList<Employee> employees = new CopyOnWriteArrayList<Employee>();
 	
-	public static final EmployeeService _instance = new EmployeeService();
+	private static final EmployeeService _instance = new EmployeeService();
 	
 	private EmployeeService() {
 		
 	}
 	
-	public EmployeeService getInstance() {
+	public static EmployeeService getInstance() {
 		return _instance;
 	}
 	

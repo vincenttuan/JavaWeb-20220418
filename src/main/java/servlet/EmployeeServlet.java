@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.Employee;
+import service.EmployeeService;
 
 /* 
  * 取得 employee_form.html 所傳來的資料
@@ -60,7 +61,10 @@ public class EmployeeServlet extends HttpServlet {
 		
 		// 將 form-data 注入 Employee 物件中
 		Employee employee = new Employee(empName, Integer.parseInt(empAge), empSex, empPos, empBirth, empLang, empMemo);
-		
+		// 取得 EmployeeService 物件
+		EmployeeService service = EmployeeService.getInstance();
+		// 加入 Employee 到集合中
+		service.addEmployee(employee);
 	}
 	
 	@Override
