@@ -25,7 +25,7 @@ public class LottoServlet extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 接收參數
 		int count = Integer.parseInt(req.getParameter("count"));
 		// 產生 lotto 數字
