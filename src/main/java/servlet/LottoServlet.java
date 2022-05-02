@@ -27,7 +27,7 @@ public class LottoServlet extends HttpServlet {
 		}
 		// 透過重導到 html/lotto_result.jsp 頁面並將 lottos 物件傳進
 		req.setAttribute("lottos", lottos);
-		RequestDispatcher rd = req.getRequestDispatcher("/html/lotto_result.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/lotto_result.jsp");
 		rd.forward(req, resp);
 	}
 	
