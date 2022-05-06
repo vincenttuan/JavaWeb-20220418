@@ -3,12 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet"
+	href="https://unpkg.com/purecss@2.1.0/build/pure-min.css">
 <meta charset="UTF-8">
 <title>Message result</title>
 </head>
-<body>
-	<h1>Message result:</h1>
-	<h2>訊息內容: ${ content }</h2>
-	<h2>回應碼(Http Code): ${ httpCode }</h2>
+<body style="padding: 20px">
+	<form class="pure-form">
+		<fieldset>
+		<legend>Message result:</legend>
+		訊息內容: ${ content }<p />
+		回應碼(Http Code): ${ httpCode }<p />
+		</fieldset>
+	</form>
 </body>
 </html>
