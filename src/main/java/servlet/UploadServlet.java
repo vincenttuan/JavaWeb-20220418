@@ -39,7 +39,20 @@ public class UploadServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 			});
-		
+		// 找到 upload_file 的值
+		// 將上傳圖片存放在 c:/upload
+		req.getParts().stream()
+		.filter(part -> part.getName().equals("upload_file"))
+		.forEach(part -> {
+			try {
+				// 取得上傳的圖片檔名
+				String fname = part.getSubmittedFileName();
+				// 存檔
+				part.write("c:/upload/" + fname);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 	}
 	
 }
