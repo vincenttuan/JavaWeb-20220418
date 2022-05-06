@@ -1,8 +1,10 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -45,6 +47,16 @@ public class UploadServlet extends HttpServlet {
 		.filter(part -> part.getName().equals("upload_file"))
 		.forEach(part -> {
 			try {
+				// 製作 base64 圖片碼 
+				// 步驟將 InputStream -> byte[] --> base64 字串
+				InputStream is = part.getInputStream();
+				byte[] bytes = IOUtils.toByteArray(is);
+				String base64 = Base64.getEncoder().encodeToString(bytes);
+				// 建立 HTML src 標籤
+				String imageHtml = "<img src='data:image/png;base64, %s'>";
+				// 將 HTML src 標籤與 base64 融合
+				out.print(String.format(imageHtml, base64));
+				
 				// 取得上傳的圖片檔名
 				String fname = part.getSubmittedFileName();
 				// 存檔
