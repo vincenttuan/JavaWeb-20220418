@@ -11,9 +11,9 @@
 <body style="padding: 20px">
 	<form class="pure-form">
 		<fieldset>
-		<legend>Message result:</legend>
-		訊息內容: ${ content }<p />
-		回應碼(Http Code): ${ httpCode }<p />
+			<legend>Message result:</legend>
+			訊息內容: ${ content }<p />
+			回應碼(Http Code): ${ httpCode }<p />
 		</fieldset>
 	</form>
 </body>
