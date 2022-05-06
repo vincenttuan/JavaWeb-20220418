@@ -40,7 +40,7 @@ public class UploadServlet extends HttpServlet {
 				}
 			});
 		// 找到 upload_file 的值
-		// 將上傳圖片存放在 c:/upload
+		// 將上傳圖片存放在 c:/upload (請先在 c:/ 根目錄下建立 upload 資料夾)
 		req.getParts().stream()
 		.filter(part -> part.getName().equals("upload_file"))
 		.forEach(part -> {
