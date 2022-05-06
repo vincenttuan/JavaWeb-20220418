@@ -9,11 +9,14 @@
 <title>Message result</title>
 </head>
 <body style="padding: 20px">
-	<form class="pure-form">
+	<form class="pure-form" action="/JavaWeb-20220418/html/message_form.html">
 		<fieldset>
 			<legend>Message result:</legend>
 			訊息內容: ${ content }<p />
 			回應碼(Http Code): ${ httpCode }<p />
+			<button type="submit" class="pure-button pure-button-primary">
+				返回
+			</button>
 		</fieldset>
 	</form>
 </body>
