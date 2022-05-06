@@ -7,7 +7,7 @@
 <title>Lotto Form</title>
 </head>
 <body style="padding: 20px">
-	<form class="pure-form" method="post" action="/JavaWeb-20220418/servlet/lotto">
+	<form class="pure-form" method="post" target="lotto_frame" action="/JavaWeb-20220418/servlet/lotto">
 		<fieldset>
 			<legend>Lotto Form</legend>
 			<input type="number" placeholder="請輸入數量" name="count" />
@@ -16,5 +16,6 @@
 			</button>
 		</fieldset>
 	</form>
+	<iframe name="lotto_frame" width="500" height="500" frameBorder="0"></iframe>
 </body>
 </html>
