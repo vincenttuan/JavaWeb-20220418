@@ -5,7 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class MessageService {
-	private String token = "";
+	private String token = "your token";
 	public int pushMessage(String content) {
 		// 推播程序 ...
 		// 設定發送位置
