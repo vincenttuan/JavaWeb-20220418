@@ -81,21 +81,19 @@
     	  var message = '';
     	  for (var i = 0; i < selection.length; i++) {
     	    var item = selection[i];
-    	    if (item.row != null && item.column != null) {
-    	      var str = data.getFormattedValue(item.row, item.column);
-    	      message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
-    	    } else if (item.row != null) {
-    	      var str = data.getFormattedValue(item.row, 0);
-    	      message += '{row:' + item.row + ', column:none}; value (col 0) = ' + str + '\n';
-    	    } else if (item.column != null) {
-    	      var str = data.getFormattedValue(0, item.column);
-    	      message += '{row:none, column:' + item.column + '}; value (row 0) = ' + str + '\n';
+    	    if (item.row != null) {
+    	    	var name = data.getFormattedValue(item.row, 0);
+    	    	var salary = data.getFormattedValue(item.row, 1);
+    	    	var fullTime = data.getFormattedValue(item.row, 2);
+      	      	message += name + '\n';
+      	    	message += salary + '\n';
+      	  		message += fullTime + '\n';
     	    }
     	  }
     	  if (message == '') {
     	    message = 'nothing';
     	  }
-    	  alert('You selected ' + message);
+    	  alert('You selected:\n' + message);
     	}
       
       function drawChart() {
