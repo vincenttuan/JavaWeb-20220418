@@ -9,6 +9,8 @@
 	int commute = r.nextInt(10);
 	int watchTV = r.nextInt(10);
 	int sleep = r.nextInt(10);
+	int coding = r.nextInt(10);
+	String chatType = "PieChart"; // PieChart, BarChart, LineChart, ColumnChart
 %>
 <html>
   <head>
@@ -25,14 +27,15 @@
           ['Eat',      <%=eat %>],
           ['Commute',  <%=commute %>],
           ['Watch TV', <%=watchTV %>],
-          ['Sleep',    <%=sleep %>]
+          ['Sleep',    <%=sleep %>],
+          ['Coding',   <%=coding %>]
         ]);
 
         var options = {
           title: 'My Daily Activities'
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.<%=chatType %>(document.getElementById('piechart'));
 
         chart.draw(data, options);
       }
