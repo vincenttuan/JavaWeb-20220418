@@ -51,14 +51,16 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['table', 'corechart']});
       google.charts.setOnLoadCallback(drawBegin);
-	  
+      var table = null;
+      var data = null;
+      
       function drawBegin() {
     	  drawTable();
     	  drawChart();
       }
         
       function drawTable() {
-        var data = new google.visualization.DataTable();
+        data = new google.visualization.DataTable();
         data.addColumn('string', 'Name');
         data.addColumn('number', 'Salary');
         data.addColumn('boolean', 'Full Time Employee');
@@ -67,18 +69,34 @@
           		['<%=emp.name %>', <%=emp.salary %>, <%=emp.fullTime %>],
           	<% } %>
         ]);
-
-        var table = new google.visualization.Table(document.getElementById('table_div'));
-
+		
+        table = new google.visualization.Table(document.getElementById('table_div'));
         table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
         google.visualization.events.addListener(table, 'select', selectHandler);
         
       }
       
-      function selectHandler(e) {
-    	  alert('A table row was selected:' + e);
-    	  console.log(e);
-      }
+      function selectHandler() {
+    	  var selection = table.getSelection();
+    	  var message = '';
+    	  for (var i = 0; i < selection.length; i++) {
+    	    var item = selection[i];
+    	    if (item.row != null && item.column != null) {
+    	      var str = data.getFormattedValue(item.row, item.column);
+    	      message += '{row:' + item.row + ',column:' + item.column + '} = ' + str + '\n';
+    	    } else if (item.row != null) {
+    	      var str = data.getFormattedValue(item.row, 0);
+    	      message += '{row:' + item.row + ', column:none}; value (col 0) = ' + str + '\n';
+    	    } else if (item.column != null) {
+    	      var str = data.getFormattedValue(0, item.column);
+    	      message += '{row:none, column:' + item.column + '}; value (row 0) = ' + str + '\n';
+    	    }
+    	  }
+    	  if (message == '') {
+    	    message = 'nothing';
+    	  }
+    	  alert('You selected ' + message);
+    	}
       
       function drawChart() {
 
