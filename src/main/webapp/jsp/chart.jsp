@@ -1,6 +1,15 @@
+<%@ page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+	Random r = new Random();
+	int work = r.nextInt(10);
+	int eat = r.nextInt(10);
+	int commute = r.nextInt(10);
+	int watchTV = r.nextInt(10);
+	int sleep = r.nextInt(10);
+%>
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -12,11 +21,11 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Work',     <%=work %>],
+          ['Eat',      <%=eat %>],
+          ['Commute',  <%=commute %>],
+          ['Watch TV', <%=watchTV %>],
+          ['Sleep',    <%=sleep %>]
         ]);
 
         var options = {
