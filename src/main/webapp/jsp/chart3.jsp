@@ -1,3 +1,4 @@
+<%@page import="entity.Employee"%>
 <%@page import="java.util.ArrayList, java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -25,6 +26,19 @@
 		return employees;
 	}
 
+%>
+<%
+	// 取得表單傳來的資料
+	String name = request.getParameter("name");
+	String salary = request.getParameter("salary");
+	String fullTime = request.getParameter("fullTime");
+	// 判斷 name 與 salary 是否有資料
+	if(name != null && salary != null) {
+		// 建立 Employee 物件
+		Employee emp = new Employee(name, Integer.parseInt(salary), (fullTime==null?false:true));
+		// 將表單資料加入到集合
+		employees.add(emp);
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -55,7 +69,7 @@
     </script>
   </head>
   <body style="padding: 15px">
-  	<form class="pure-form">
+  	<form class="pure-form" method="post">
   		<legend>Employee Form</legend>
   		<input type="text" placeholder="請輸入名稱" name="name" /><p />
   		<input type="number" placeholder="請輸入薪資" name="salary" /><p />
