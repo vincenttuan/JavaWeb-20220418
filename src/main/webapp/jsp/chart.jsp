@@ -10,10 +10,12 @@
 	int watchTV = r.nextInt(10);
 	int sleep = r.nextInt(10);
 	int coding = r.nextInt(10);
-	String chatType = "PieChart"; // PieChart, BarChart, LineChart, ColumnChart
+	int w = 450;
+	int h = 250;
 %>
 <html>
   <head>
+  	<meta http-equiv="refresh" content="1"> <!-- 每一秒鐘自動更新網頁一次 -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -32,16 +34,19 @@
         ]);
 
         var options = {
-          title: 'My Daily Activities'
+          title: 'My Daily Activities',
+          is3D: true
         };
 
-        var chart = new google.visualization.<%=chatType %>(document.getElementById('piechart'));
-
-        chart.draw(data, options);
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart'));
+        
+        piechart.draw(data, options);
+        
       }
     </script>
   </head>
   <body>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div id="piechart" style="width: <%=w %>px; height: <%=h %>px;"></div>
+    
   </body>
 </html>

@@ -50,8 +50,13 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['table', 'corechart']});
-      google.charts.setOnLoadCallback(drawTable);
-
+      google.charts.setOnLoadCallback(drawBegin);
+	  
+      function drawBegin() {
+    	  drawTable();
+    	  drawChart();
+      }
+        
       function drawTable() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Name');
@@ -67,7 +72,27 @@
 
         table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
       }
-    </script>
+      
+      function drawChart() {
+
+          var data = google.visualization.arrayToDataTable([
+            ['Name', 'Salary'],
+            <% for(Employee emp : getEmployees()) { %>	
+      			['<%=emp.name %>', <%=emp.salary %>],
+      		<% } %>
+          ]);
+
+          var options = {
+            title: 'Salary chart'
+          };
+
+          var barchart = new google.visualization.BarChart(document.getElementById('barchart'));
+          
+          barchart.draw(data, options);
+          
+		}
+      
+  </script>
   </head>
   <body style="padding: 15px">
   	<form class="pure-form" method="post">
@@ -79,5 +104,6 @@
   		<button type="submit" class="pure-button pure-button-primary">Add</button>
   	</form>
     <div id="table_div"></div>
+    <div id="barchart"></div>
   </body>
 </html>
