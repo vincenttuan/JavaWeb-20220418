@@ -29,11 +29,12 @@
 %>
 <%
 	// 取得表單傳來的資料
-	String name = request.getParameter("name");
-	String salary = request.getParameter("salary");
-	String fullTime = request.getParameter("fullTime");
-	// 判斷 name 與 salary 是否有資料
-	if(name != null && salary != null) {
+	String flag = request.getParameter("flag");
+	// 判斷 flag 是否有資料
+	if(flag != null) {
+		String name = request.getParameter("name");
+		String salary = request.getParameter("salary");
+		String fullTime = request.getParameter("fullTime");
 		// 建立 Employee 物件
 		Employee emp = new Employee(name, Integer.parseInt(salary), (fullTime==null?false:true));
 		// 將表單資料加入到集合
@@ -74,6 +75,7 @@
   		<input type="text" placeholder="請輸入名稱" name="name" /><p />
   		<input type="number" placeholder="請輸入薪資" name="salary" /><p />
   		<input type="checkbox" value="true" name="fullTime" /> Full-Time<p />
+  		<input type="hidden" value="true" name="flag" />
   		<button type="submit" class="pure-button pure-button-primary">Add</button>
   	</form>
     <div id="table_div"></div>
