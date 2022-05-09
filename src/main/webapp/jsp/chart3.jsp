@@ -26,14 +26,34 @@
 	}
 
 %>
-    
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>員工薪資表</title>
-</head>
-<body>
+  <head>
+  	<meta charset="UTF-8">
+	<title>員工薪資表</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table', 'corechart']});
+      google.charts.setOnLoadCallback(drawTable);
 
-</body>
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('number', 'Salary');
+        data.addColumn('boolean', 'Full Time Employee');
+        data.addRows([
+        	<% for(Employee emp : getEmployees()) { %>	
+          		['<%=emp.name %>', <%=emp.salary %>, <%=emp.fullTime %>],
+          	<% } %>
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      }
+    </script>
+  </head>
+  <body>
+    <div id="table_div"></div>
+  </body>
 </html>
