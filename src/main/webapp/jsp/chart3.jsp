@@ -77,6 +77,7 @@
       
       function selectHandler(e) {
     	  alert('A table row was selected:' + e);
+    	  console.log(e);
       }
       
       function drawChart() {
