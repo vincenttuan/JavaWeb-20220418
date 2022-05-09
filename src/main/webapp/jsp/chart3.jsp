@@ -31,6 +31,7 @@
   <head>
   	<meta charset="UTF-8">
 	<title>員工薪資表</title>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['table', 'corechart']});
@@ -53,7 +54,14 @@
       }
     </script>
   </head>
-  <body>
+  <body style="padding: 15px">
+  	<form class="pure-form">
+  		<legend>Employee Form</legend>
+  		<input type="text" placeholder="請輸入名稱" name="name" /><p />
+  		<input type="number" placeholder="請輸入薪資" name="salary" /><p />
+  		<input type="checkbox" value="true" name="fullTime" /> Full-Time<p />
+  		<button type="submit" class="pure-button pure-button-primary">Add</button>
+  	</form>
     <div id="table_div"></div>
   </body>
 </html>
