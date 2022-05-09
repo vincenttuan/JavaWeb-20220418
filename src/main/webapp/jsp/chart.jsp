@@ -15,6 +15,7 @@
 %>
 <html>
   <head>
+  	<meta http-equiv="refresh" content="1"> <!-- 每一秒鐘自動更新網頁一次 -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -33,7 +34,8 @@
         ]);
 
         var options = {
-          title: 'My Daily Activities'
+          title: 'My Daily Activities',
+          is3D: true
         };
 
         var piechart = new google.visualization.PieChart(document.getElementById('piechart'));
