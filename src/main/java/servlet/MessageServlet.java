@@ -21,10 +21,13 @@ public class MessageServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=utf-8");
 		// 接收前端來的資料
 		String content = req.getParameter("content");
+		String stickerPackageId = req.getParameter("stickerPackageId");
+		String stickerId = req.getParameter("stickerId");
+		
 		// 建立推播服務
 		MessageService messageService = new MessageService();
 		// 進行訊息推播並回傳 httpCode 狀態值
-		int httpCode = messageService.pushMessage(content);
+		int httpCode = messageService.pushMessageAndSticker(content, stickerPackageId, stickerId);
 		// 最後將必要訊息收集並重導給 jsp 去呈現
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/message_result.jsp");
 		req.setAttribute("content", content);

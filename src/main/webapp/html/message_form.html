@@ -10,7 +10,11 @@
 	<form class="pure-form" method="post" action="/JavaWeb-20220418/servlet/message">
 		<fieldset>
 			<legend>Message Form</legend>
-			<textarea type="text" placeholder="請輸入訊息" name="content"></textarea>
+			訊息: <textarea type="text" placeholder="請輸入訊息" name="content"></textarea>
+			<p />
+			貼圖(stickerPackageId + stickerId): <br />
+			<input type="number" name="stickerPackageId" value="6325" />
+			<input type="number" name="stickerId" value="10979907" />
 			<p />
 			<button type="submit" class="pure-button pure-button-primary">
 				傳送
