@@ -31,6 +31,7 @@ public class MessageServlet extends HttpServlet {
 		// 最後將必要訊息收集並重導給 jsp 去呈現
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/message_result.jsp");
 		req.setAttribute("content", content);
+		req.setAttribute("stickerId", stickerId);
 		req.setAttribute("httpCode", httpCode);
 		rd.forward(req, resp);
 	}

@@ -5,7 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class MessageService {
-	private String token = "your token";
+	private String token = "";
 	
 	public int pushMessageAndSticker(String content, String stickerPackageId, String stickerId) {
 		// 推播程序 ...
