@@ -23,11 +23,14 @@
 			<p />
 			貼圖(stickerPackageId + stickerId): <br />
 			<input type="number" name="stickerPackageId" id="stickerPackageId" value="6325" style="width: 100px" />
-			<input type="number" name="stickerId" id="stickerId" value="10979907" style="width: 120px" />
+			<input type="number" onchange="previewSticker()" name="stickerId" id="stickerId" value="10979907" style="width: 120px" />
 			<button type="button" onclick="previewSticker()" class="pure-button pure-button-primary">
 				預覽
 			</button>
 			<span id="previewStickerArea"></span>
+			<p />
+			網路圖片位置: 
+			<input type="text" name="webImageUrl" id="webImageUrl" value="" />
 			<p />
 			<button type="submit" class="pure-button pure-button-primary">
 				傳送
