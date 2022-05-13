@@ -13,6 +13,13 @@
 		var imgUrl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" + stickerId + "/android/sticker.png";
 		document.getElementById('previewStickerArea').innerHTML = "<img valign='middle' width='100' src='" + imgUrl + "'>";
 	}
+	
+	// 預覽Web圖 
+	function previewWebImage() {
+		var webImageUrl = document.getElementById('webImageUrl').value;
+		console.log(webImageUrl); // 印在瀏覽器的 console 中
+		document.getElementById('previewWebImageArea').innerHTML = "<img src='" + webImageUrl + "'>";
+	}
 </script>
 </head>
 <body style="padding: 20px">
@@ -31,6 +38,10 @@
 			<p />
 			網路圖片位置: 
 			<input type="text" name="webImageUrl" id="webImageUrl" value="" />
+			<button type="button" onclick="previewWebImage()" class="pure-button pure-button-primary">
+				預覽
+			</button>
+			<div id="previewWebImageArea"></div>
 			<p />
 			<button type="submit" class="pure-button pure-button-primary">
 				傳送
