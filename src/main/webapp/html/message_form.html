@@ -30,8 +30,12 @@
 			document.getElementById('content').focus();
 			return false;
 		}
-		// 2.若 webImageUrl 欄位有資料且前面沒有加上http:// 或 https://, 則統一補上 http://
-		
+		// 2.若 webImageUrl 欄位有資料且前面沒有加上http:// 或 https://, 則統一補上 https://
+		var webImageUrl = document.getElementById('webImageUrl').value;
+		if(!(webImageUrl.indexOf('http://') >= 0 || webImageUrl.indexOf('https://') >= 0)) {
+			// 自動在網址前面加上 https://			
+			document.getElementById('webImageUrl').value = 'https://' + webImageUrl;
+		}
 		return true;
 	}
 	
