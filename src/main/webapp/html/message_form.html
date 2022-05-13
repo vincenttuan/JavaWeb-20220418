@@ -25,6 +25,7 @@
 	function beforeSubmit() {
 		// 1.檢查訊息內容是否有資料?
 		var content = document.getElementById('content').value;
+		content = content.trim(); // trim() 表示去除左右空白
 		if(content == '') {
 			alert('請輸入訊息內容 !');
 			document.getElementById('content').focus();
@@ -32,9 +33,12 @@
 		}
 		// 2.若 webImageUrl 欄位有資料且前面沒有加上http:// 或 https://, 則統一補上 https://
 		var webImageUrl = document.getElementById('webImageUrl').value;
-		if(!(webImageUrl.indexOf('http://') >= 0 || webImageUrl.indexOf('https://') >= 0)) {
-			// 自動在網址前面加上 https://			
-			document.getElementById('webImageUrl').value = 'https://' + webImageUrl;
+		webImageUrl = webImageUrl.trim();
+		if(webImageUrl != '') {
+			if(!(webImageUrl.indexOf('http://') >= 0 || webImageUrl.indexOf('https://') >= 0)) {
+				// 自動在網址前面加上 https://			
+				document.getElementById('webImageUrl').value = 'https://' + webImageUrl;
+			}
 		}
 		return true;
 	}
