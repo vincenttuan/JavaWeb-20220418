@@ -5,16 +5,26 @@
 	href="https://unpkg.com/purecss@2.1.0/build/pure-min.css">
 <meta charset="UTF-8">
 <title>Message Form</title>
+<script>
+	// 預覽貼圖 
+	function previewSticker() {
+		var stickerId = document.getElementById('stickerId').value;
+		console.log(stickerId); // 印在瀏覽器的 console 中
+	}
+</script>
 </head>
 <body style="padding: 20px">
 	<form class="pure-form" method="post" action="/JavaWeb-20220418/servlet/message">
 		<fieldset>
 			<legend>Message Form</legend>
-			訊息: <textarea type="text" placeholder="請輸入訊息" name="content"></textarea>
+			訊息: <textarea type="text" placeholder="請輸入訊息" name="content" id="content"></textarea>
 			<p />
 			貼圖(stickerPackageId + stickerId): <br />
-			<input type="number" name="stickerPackageId" value="6325" />
-			<input type="number" name="stickerId" value="10979907" />
+			<input type="number" name="stickerPackageId" id="stickerPackageId" value="6325" style="width: 100px" />
+			<input type="number" name="stickerId" id="stickerId" value="10979907" style="width: 120px" />
+			<button type="button" class="pure-button pure-button-primary">
+				預覽
+			</button>
 			<p />
 			<button type="submit" class="pure-button pure-button-primary">
 				傳送
