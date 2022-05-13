@@ -14,6 +14,7 @@
 			<legend>Message result:</legend>
 			訊息內容: ${ content }<p />
 			貼圖: <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/${ stickerId }/android/sticker.png"><p />
+			網路圖片: <img src="${ webImageUrl }"><p />
 			回應碼(Http Code): ${ httpCode }<p />
 			<button type="submit" class="pure-button pure-button-primary">
 				返回

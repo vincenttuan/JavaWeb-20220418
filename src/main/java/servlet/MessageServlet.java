@@ -35,6 +35,7 @@ public class MessageServlet extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/message_result.jsp");
 		req.setAttribute("content", content);
 		req.setAttribute("stickerId", stickerId);
+		req.setAttribute("webImageUrl", webImageUrl);
 		req.setAttribute("httpCode", httpCode);
 		rd.forward(req, resp);
 	}
