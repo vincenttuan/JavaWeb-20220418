@@ -17,6 +17,15 @@
 	// 預覽Web圖 
 	function previewWebImage() {
 		var webImageUrl = document.getElementById('webImageUrl').value;
+		webImageUrl = webImageUrl.trim();
+		if(webImageUrl != '') {
+			if(!(webImageUrl.indexOf('http://') >= 0 || webImageUrl.indexOf('https://') >= 0)) {
+				// 自動在網址前面加上 https://			
+				document.getElementById('webImageUrl').value = 'https://' + webImageUrl;
+				// 重新抓取 webImageUrl 資料
+				webImageUrl = document.getElementById('webImageUrl').value;
+			}
+		}
 		console.log(webImageUrl); // 印在瀏覽器的 console 中
 		document.getElementById('previewWebImageArea').innerHTML = "<img src='" + webImageUrl + "'>";
 	}
