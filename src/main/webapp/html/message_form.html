@@ -20,10 +20,26 @@
 		console.log(webImageUrl); // 印在瀏覽器的 console 中
 		document.getElementById('previewWebImageArea').innerHTML = "<img src='" + webImageUrl + "'>";
 	}
+	
+	// 表單傳送前的驗證
+	function beforeSubmit() {
+		// 檢查訊息內容是否有資料?
+		var content = document.getElementById('content').value;
+		if(content == '') {
+			alert('請輸入訊息內容 !');
+			document.getElementById('content').focus();
+			return false;
+		}
+		return true;
+	}
+	
 </script>
 </head>
 <body style="padding: 20px">
-	<form class="pure-form" method="post" action="/JavaWeb-20220418/servlet/message">
+	<form class="pure-form" 
+		  method="post" 
+		  onsubmit="return beforeSubmit()"
+		  action="/JavaWeb-20220418/servlet/message">
 		<fieldset>
 			<legend>Message Form</legend>
 			訊息: <textarea type="text" placeholder="請輸入訊息" name="content" id="content"></textarea>
