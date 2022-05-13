@@ -10,6 +10,8 @@
 	function previewSticker() {
 		var stickerId = document.getElementById('stickerId').value;
 		console.log(stickerId); // 印在瀏覽器的 console 中
+		var imgUrl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" + stickerId + "/android/sticker.png";
+		document.getElementById('previewStickerArea').innerHTML = "<img src='" + imgUrl + "'>";
 	}
 </script>
 </head>
@@ -25,6 +27,7 @@
 			<button type="button" onclick="previewSticker()" class="pure-button pure-button-primary">
 				預覽
 			</button>
+			<span id="previewStickerArea"></span>
 			<p />
 			<button type="submit" class="pure-button pure-button-primary">
 				傳送
