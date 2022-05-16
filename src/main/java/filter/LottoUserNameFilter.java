@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(urlPatterns = {"/servlet/lotto"}) // 定義要管理的 URL
-public class LottoUsernameFilter extends HttpFilter {
+public class LottoUserNameFilter extends HttpFilter {
 	
 	@Override
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("執行 LottoUsernameFilter");
+		System.out.println("執行 LottoUserNameFilter");
 		req.setCharacterEncoding("utf-8");
 		res.setContentType("text/html;charset=utf-8");
 		res.setCharacterEncoding("utf-8");
