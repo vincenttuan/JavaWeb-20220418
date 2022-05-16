@@ -5,7 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class MessageService {
-	private String token = "";
+	private String token = "2OdorSjaqGFmfyc30nUhg1fOzuLUtCxtRooVGZ8IleL";
 	
 	public int pushMessageAndWebImage(String content, String webImageUrl) {
 		// 推播程序 ...
