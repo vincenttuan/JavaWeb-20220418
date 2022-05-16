@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(urlPatterns = {"/servlet/lotto"}) // 定義要管理的 URL
-public class LottoUserNameFilter extends HttpFilter {
+public class LottoUsernameFilter extends HttpFilter {
 	
 	@Override
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
