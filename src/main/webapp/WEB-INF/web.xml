@@ -23,6 +23,7 @@
   	<url-pattern>/servlet/TodayServlet</url-pattern>
   </servlet-mapping>
   
+  <!-- 建立過濾器 -->
   <filter>
   	<filter-name>AreaFilterA</filter-name>
   	<filter-class>filter.AreaFilterA</filter-class>
@@ -38,6 +39,7 @@
   	<filter-class>filter.AreaFilterC</filter-class>
   </filter>
   
+  <!-- 配置過濾器 -->
   <filter-mapping>
   	<filter-name>AreaFilterC</filter-name>
   	<url-pattern>/servlet/area</url-pattern>
