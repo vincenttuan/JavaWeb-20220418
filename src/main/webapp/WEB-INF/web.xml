@@ -23,6 +23,37 @@
   	<url-pattern>/servlet/TodayServlet</url-pattern>
   </servlet-mapping>
   
+  <filter>
+  	<filter-name>AreaFilterA</filter-name>
+  	<filter-class>filter.AreaFilterA</filter-class>
+  </filter>
+  
+  <filter>
+  	<filter-name>AreaFilterB</filter-name>
+  	<filter-class>filter.AreaFilterB</filter-class>
+  </filter>
+  
+  <filter>
+  	<filter-name>AreaFilterC</filter-name>
+  	<filter-class>filter.AreaFilterC</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>AreaFilterC</filter-name>
+  	<url-pattern>/servlet/area</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>AreaFilterB</filter-name>
+  	<url-pattern>/servlet/area</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>AreaFilterA</filter-name>
+  	<url-pattern>/servlet/area</url-pattern>
+  </filter-mapping>
+  
+  
 </web-app>
 
 
