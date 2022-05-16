@@ -21,8 +21,9 @@ public class LottoUsernameFilter extends HttpFilter {
 		res.setContentType("text/html;charset=utf-8");
 		res.setCharacterEncoding("utf-8");
 		
-		PrintWriter out = res.getWriter();
-		out.print("我是 LottoUsernameFilter");
+		//PrintWriter out = res.getWriter();
+		//out.print("我是 LottoUsernameFilter");
+		chain.doFilter(req, res);
 	}
 	
 }
