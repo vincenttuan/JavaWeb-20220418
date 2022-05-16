@@ -21,7 +21,7 @@ public class WatermarkFilter extends HttpFilter {
 		// 取得回傳的 HTML 原始碼
 		String html = myResp.getHTMLSource();
 		// html 中將入浮水印
-		html = html.replaceAll("<body", "<body bgcolor='red' ");
+		html = html.replaceAll("<body", "<body background='/JavaWeb-20220418/image/watermark.jpg' ");
 		// 將資料重寫回給瀏覽器
 		res.getWriter().print(html);
 	}
