@@ -11,7 +11,7 @@
 	<form class="pure-form">
 		<fieldset>
 			<legend>Cart</legend>
-			
+			${ sessionScope.products }
 			<p />
 			<button type="button"
 					onclick="location.href='/JavaWeb-20220418/servlet/cart/clear';" 
