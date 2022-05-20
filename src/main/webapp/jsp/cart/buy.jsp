@@ -8,7 +8,7 @@
 <title>Buy</title>
 </head>
 <body style="padding: 20px">
-	<form class="pure-form" action="/JavaWeb-20220418/servlet/cart/buy">
+	<form class="pure-form" method="post" action="/JavaWeb-20220418/servlet/cart/buy">
 		<fieldset>
 			<legend>Buy</legend>
 			品名: 
