@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +29,11 @@ public class AuthCodeImageServlet extends HttpServlet {
 		req.getSession().setAttribute("authCode", authCode);
 		
 		// 產生驗證碼圖片
+		try {
+			ImageIO.write(getAuthCodeImage(authCode), "JPEG", resp.getOutputStream());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
