@@ -9,7 +9,7 @@ import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter("/servlet/*")
+@WebFilter(urlPatterns = {"/servlet/*", "/report/*"})
 public class UTF8Filter extends HttpFilter {
 
 	@Override
