@@ -1,5 +1,9 @@
 package captcha;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
@@ -28,7 +32,24 @@ public class AuthCodeImageServlet extends HttpServlet {
 	}
 	
 	// 產生驗證碼圖片
-	
+	private BufferedImage getAuthCodeImage(String authCode) {
+		// 建立圖像暫存區
+		BufferedImage img = new BufferedImage(80, 30, BufferedImage.TYPE_INT_RGB);
+		// 建立畫布
+		Graphics g = img.getGraphics();
+		// 設定顏色
+		g.setColor(Color.YELLOW);
+		// 塗滿背景
+		g.fillRect(0, 0, 80, 30);
+		// 設定顏色
+		g.setColor(Color.BLACK);
+		// 設定字型(字體, 字樣, 尺寸)
+		g.setFont(new Font("新細明體", Font.PLAIN, 30));
+		// 繪文字
+		g.drawString(authCode, 10, 23);
+		
+		return img;
+	}
 	
 	
 }
