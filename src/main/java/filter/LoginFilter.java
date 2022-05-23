@@ -23,7 +23,7 @@ public class LoginFilter extends HttpFilter {
 		// 判斷此人是否是尚未登入或登入已過時
 		if(data == null || Boolean.parseBoolean(data+"") != true) { 
 			// 重導到登入頁面
-			RequestDispatcher rd = req.getRequestDispatcher("/servlet/login");
+			RequestDispatcher rd = req.getRequestDispatcher("/login");
 			rd.forward(req, res);
 		} else {
 			// 通過驗證
