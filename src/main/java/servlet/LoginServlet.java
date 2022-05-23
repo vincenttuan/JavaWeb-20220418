@@ -14,16 +14,9 @@ import javax.servlet.http.HttpSession;
 public class LoginServlet extends HttpServlet {
 	
 	private void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 1. 判斷是否此人已登入
-		HttpSession session = req.getSession();
-		Object data = session.getAttribute("pass");
-		if(data == null || Boolean.parseBoolean(data+"") != true) { 		
-			RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/login_form.jsp");
-			rd.forward(req, resp);
-		} else {
-			RequestDispatcher rd = req.getRequestDispatcher("/report/daily");
-			rd.forward(req, resp);
-		}
+		// 將重導命令直接由 server 端來執行
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/login_form.jsp");
+		rd.forward(req, resp);
 	}
 	
 	@Override
