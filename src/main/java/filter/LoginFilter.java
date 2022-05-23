@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = {"/report/*"})
+@WebFilter(urlPatterns = {"/report/*", "/jsp/cart/*"})
 public class LoginFilter extends HttpFilter {
 
 	@Override
