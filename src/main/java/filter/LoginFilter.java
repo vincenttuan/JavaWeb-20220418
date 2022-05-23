@@ -20,13 +20,24 @@ public class LoginFilter extends HttpFilter {
 		// 1. 判斷是否此人已登入
 		HttpSession session = req.getSession();
 		Object data = session.getAttribute("pass");
-		// 判斷此人是否是尚未登入或登入已過時
+		// 2.判斷此人是否是尚未登入或登入已過時
 		if(data == null || Boolean.parseBoolean(data+"") != true) { 
-			// 重導到登入頁面
-			RequestDispatcher rd = req.getRequestDispatcher("/login");
-			rd.forward(req, res);
+			// 2.1 有把 username, password 與 usercode 傳遞過來
+			String username = req.getParameter("username");
+			String password = req.getParameter("password");
+			String userCode = req.getParameter("usercode");
+			String authCode = session.getAttribute("authCode") + "";
+			if(username.equals("admin") && password.equals("1234") && userCode.equals(authCode)) {
+				// 通過驗證
+				chain.doFilter(req, res);
+			} else {
+				// 2.2 重導到登入頁面
+				RequestDispatcher rd = req.getRequestDispatcher("/login");
+				rd.forward(req, res);
+			}
+			
 		} else {
-			// 通過驗證
+			// 2.通過驗證
 			chain.doFilter(req, res);
 		}
 		
