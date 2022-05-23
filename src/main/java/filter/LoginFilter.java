@@ -28,6 +28,8 @@ public class LoginFilter extends HttpFilter {
 			String userCode = req.getParameter("usercode");
 			String authCode = session.getAttribute("authCode") + "";
 			if(username.equals("admin") && password.equals("1234") && userCode.equals(authCode)) {
+				// 寫入驗證通過 session 資料
+				session.setAttribute("pass", true);
 				// 通過驗證
 				chain.doFilter(req, res);
 			} else {
@@ -37,7 +39,7 @@ public class LoginFilter extends HttpFilter {
 			}
 			
 		} else {
-			// 2.通過驗證
+			// 3.通過驗證
 			chain.doFilter(req, res);
 		}
 		
