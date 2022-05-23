@@ -23,9 +23,9 @@ public class LoginFilter extends HttpFilter {
 		// 2.判斷此人是否是尚未登入或登入已過時
 		if(data == null || Boolean.parseBoolean(data+"") != true) { 
 			// 2.1 有把 username, password 與 usercode 傳遞過來
-			String username = req.getParameter("username");
-			String password = req.getParameter("password");
-			String userCode = req.getParameter("usercode");
+			String username = req.getParameter("username") + "";
+			String password = req.getParameter("password") + "";
+			String userCode = req.getParameter("usercode") + "";
 			String authCode = session.getAttribute("authCode") + "";
 			if(username.equals("admin") && password.equals("1234") && userCode.equals(authCode)) {
 				// 寫入驗證通過 session 資料
