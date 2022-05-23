@@ -53,6 +53,16 @@ public class AuthCodeImageServlet extends HttpServlet {
 		g.setFont(new Font("新細明體", Font.PLAIN, 30));
 		// 繪文字
 		g.drawString(authCode, 10, 23);
+		// 放入干擾線
+		Random random = new Random();
+		g.setColor(Color.RED);
+		for(int i=0;i<10;i++) {
+			int x1 = random.nextInt(80);
+			int y1 = random.nextInt(30);
+			int x2 = random.nextInt(80);
+			int y2 = random.nextInt(30);
+			g.drawLine(x1, y1, x2, y2);
+		}
 		
 		return img;
 	}
