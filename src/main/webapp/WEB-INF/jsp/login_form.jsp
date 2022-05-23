@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,7 @@
 <title>登入頁面</title>
 </head>
 <body style="padding: 20px">
-	<form class="pure-form" method="post" action="/JavaWeb-20220418/servlet/area">
+	<form class="pure-form" method="post">
 		<fieldset>
 			<legend>登入頁面 - Login</legend>
 			<input type="text" placeholder="請輸入使用者名稱" name="username" />

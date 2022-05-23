@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 	
 	private void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/html/login+form.html");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/login_form.jsp");
 		rd.forward(req, resp);
 	}
 	
