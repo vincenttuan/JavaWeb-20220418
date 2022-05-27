@@ -2,6 +2,8 @@ package jdbc;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,14 +23,23 @@ public class CreateDBServlet extends HttpServlet {
 		// 建立資料庫連線參數
 		String db_url = "jdbc:sqlite:" + db_path + "/" + db_name;
 		// 資料庫連線物件
-		Connection conn;
+		Connection conn = null;
 		try {
 			// 建立資料庫 driver
 			Class.forName("org.sqlite.JDBC");
-			
+			conn = DriverManager.getConnection(db_url);
+			resp.getWriter().print("Connection to SQLite has benn established!");
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			resp.getWriter().print(e.getMessage());
+		} finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					resp.getWriter().print(e.getMessage());
+				}
+			}
 		}
 	}
 	
