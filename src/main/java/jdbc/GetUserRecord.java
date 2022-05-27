@@ -20,7 +20,7 @@ public class GetUserRecord extends BaseServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String sql = "select id, name, age, createtime from user where id = ?";
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setInt(1, new Random().nextInt(39) + 1);
+			pstmt.setInt(1, new Random().nextInt(50) + 1);
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next()) {
 				User user = new User();
