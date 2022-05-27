@@ -14,6 +14,7 @@ public class ConnectionListener implements ServletContextListener {
 	// Server 啟動時要執行的程式
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
+		System.out.println("Tomcat 啟動中 ...");
 		// 資料庫放置位置
 		String db_path = "C:/Users/student/eclipse-workspace-web/JavaWeb-20220418/db";
 		// 資料庫名稱
@@ -28,6 +29,7 @@ public class ConnectionListener implements ServletContextListener {
 			conn = DriverManager.getConnection(db_url);
 			// 將 conn 物件放到 context(Application) scope 變數中
 			sce.getServletContext().setAttribute("conn", conn);
+			System.out.println("已將 conn 物件放到 context(Application) scope 變數中");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,7 +38,18 @@ public class ConnectionListener implements ServletContextListener {
 	// Server 關閉時要執行的程式
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-
+		System.out.println("Tomcat 關閉中 ...");
+		Object connObj = sce.getServletContext().getAttribute("conn");
+		if(connObj != null) {
+			 try {
+				if(connObj instanceof Connection) {
+					((Connection)connObj).close();
+					System.out.println("conn 物件 已關閉");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }
