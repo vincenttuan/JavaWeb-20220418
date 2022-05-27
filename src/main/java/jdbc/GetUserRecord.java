@@ -27,7 +27,7 @@ public class GetUserRecord extends BaseServlet {
 				user.setId(rs.getInt("id"));
 				user.setName(rs.getString("name"));
 				user.setAge(rs.getInt("age"));
-				user.setCreatetime(rs.getDate("createtime"));
+				user.setCreatetime(rs.getTimestamp("createtime"));
 				resp.getWriter().print(user);
 			} else {
 				resp.getWriter().print("No record !");

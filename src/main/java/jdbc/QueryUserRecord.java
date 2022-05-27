@@ -31,7 +31,7 @@ public class QueryUserRecord extends BaseServlet {
 				user.setId(rs.getInt("id"));
 				user.setName(rs.getString("name"));
 				user.setAge(rs.getInt("age"));
-				user.setCreatetime(rs.getDate("createtime"));
+				user.setCreatetime(rs.getTimestamp("createtime"));
 				users.add(user);
 				count++;
 			}
