@@ -2,6 +2,7 @@ package jdbc;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,24 @@ public class CreateUserTable extends BaseServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.getWriter().print(conn);
+		
+		String sql =  "create table if not exists user("
+					+ "id integer primary key,"
+					+ "name text not null,"
+					+ "age integer,"
+					+ "createtime datetime default current_timestamp"
+					+ ")";
+		
+		try(Statement stmt = conn.createStatement()) {
+			boolean flag = stmt.execute(sql);
+			if(flag) {
+				resp.getWriter().print("select user ok");
+			} else {
+				resp.getWriter().print("create user ok");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 }
