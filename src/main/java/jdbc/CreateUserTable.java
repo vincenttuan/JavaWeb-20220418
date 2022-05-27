@@ -31,7 +31,7 @@ public class CreateUserTable extends BaseServlet {
 				resp.getWriter().print("create user ok");
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			resp.getWriter().print(e);
 		}
 	}
 	
