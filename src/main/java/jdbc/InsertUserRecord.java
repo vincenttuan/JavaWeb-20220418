@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.github.javafaker.Faker;
 
-@WebServlet("/create/user/table")
+@WebServlet("/insert/user/record")
 public class InsertUserRecord extends BaseServlet {
 
 	@Override
