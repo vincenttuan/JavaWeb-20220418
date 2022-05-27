@@ -35,6 +35,7 @@ public class CreateDBServlet extends HttpServlet {
 		} finally {
 			if(conn != null) {
 				try {
+					// 關閉資料庫連線
 					conn.close();
 				} catch (SQLException e) {
 					resp.getWriter().print(e.getMessage());
