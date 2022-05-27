@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.github.javafaker.Faker;
+import com.google.gson.Gson;
 
 // 多筆查詢
 @WebServlet("/query/user/record")
@@ -34,8 +35,13 @@ public class QueryUserRecord extends BaseServlet {
 				users.add(user);
 				count++;
 			}
-			resp.getWriter().print("count = " + count);
-			resp.getWriter().print(users);
+			//resp.getWriter().print("count = " + count);
+			//resp.getWriter().print(users);
+			// 轉化為 json 結構
+			Gson gson = new Gson();
+			String jsonString = gson.toJson(users);
+			resp.setContentType("application/json;charset=utf-8");
+			resp.getWriter().print(jsonString);
 		} catch (Exception e) {
 			resp.getWriter().print(e);
 		}
