@@ -24,6 +24,10 @@ public class JPAService {
 		em = emf.createEntityManager();
 	}
 	
+	public EntityManager getEntityManager() {
+		return em;
+	}
+	
 	public void addPerson(Person person) {
 		synchronized (em) {
 			EntityTransaction etx = em.getTransaction();
