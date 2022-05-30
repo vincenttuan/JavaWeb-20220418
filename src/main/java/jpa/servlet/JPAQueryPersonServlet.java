@@ -33,7 +33,9 @@ public class JPAQueryPersonServlet extends HttpServlet {
 		out.print(jpaService.queryPersonByAge(20) + "<p />");
 		
 		out.print(jpaService.findAll() + "<p />");
-		out.print(jpaService.findByName("a") + "<p />");
+		//out.print(jpaService.findByName("au%") + "<p />");
+		//out.print(jpaService.findByName("%er") + "<p />");
+		out.print(jpaService.findByName("%m%") + "<p />");
 		out.print(jpaService.findByAgeBetween(18, 25) + "<p />");
 		
 	}
