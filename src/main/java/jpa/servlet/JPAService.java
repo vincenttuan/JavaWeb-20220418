@@ -1,9 +1,12 @@
 package jpa.servlet;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
@@ -30,5 +33,23 @@ public class JPAService {
 		}
 	}
 	
+	public Person getPersonById(Integer id) {
+		return em.find(Person.class, id);
+	}
+	
+	public List<Person> queryAllPerson() {
+		Query query = em.createQuery("select p from Person p"); // JPQL
+		//Query query = em.createQuery("from Person p", Person.class); // JPQL
+		List<Person> list = query.getResultList();
+		return list;
+	}
+	
+	public List<Person> queryPersonByAge(Integer age) {
+		String sql = "select p from Person p where p.age = :age"; // JPQL
+		Query query = em.createQuery(sql);
+		query.setParameter("age", age);
+		List<Person> list = query.getResultList();
+		return list;
+	}
 	
 }
