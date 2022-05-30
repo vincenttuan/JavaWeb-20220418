@@ -24,6 +24,7 @@ public class JPAAddPersonServlet extends JPABaseServlet {
 		person.setName(name);
 		person.setAge(age);
 		
+		resp.getWriter().print("Add: " + person);
 		// 進行資料交易
 		EntityTransaction etx = em.getTransaction();
 		etx.begin(); // 開始
