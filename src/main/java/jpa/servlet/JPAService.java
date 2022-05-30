@@ -45,7 +45,7 @@ public class JPAService {
 	}
 	
 	public List<Person> queryPersonByAge(Integer age) {
-		String sql = "select p from Person p where p.age = :age"; // JPQL
+		String sql = "select p from Person p where p.age >= :age"; // JPQL
 		Query query = em.createQuery(sql);
 		query.setParameter("age", age);
 		List<Person> list = query.getResultList();
