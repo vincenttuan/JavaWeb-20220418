@@ -52,4 +52,22 @@ public class JPAService {
 		return list;
 	}
 	
+	public List<Person> findAll() {
+		return em.createNamedQuery("Person.findAll").getResultList();
+	}
+	
+	public List<Person> findByName(String name) {
+		return em.createNamedQuery("Person.findByName")
+				 .setParameter("name", name)
+				 .getResultList();
+	}
+	
+	public List<Person> findByAgeBetween(Integer min, Integer max) {
+		return em.createNamedQuery("Person.findByAgeBetween")
+				 .setParameter("min", min)
+				 .setParameter("max", max)
+				 .getResultList();
+	}
+	
+	
 }
