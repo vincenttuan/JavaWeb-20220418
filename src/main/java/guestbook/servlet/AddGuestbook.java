@@ -28,14 +28,10 @@ public class AddGuestbook extends HttpServlet {
 		// 將 guestbook 資料存入
 		service.addGuestbook(guestbook);
 		// 重導頁面
-		RequestDispatcher rd = req.getRequestDispatcher("/guestbook/view");
-		rd.forward(req, resp);
-		/*
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/guestbook_view.jsp");
 		req.setAttribute("guestbooks", service.queryGuestbook());
 		req.setAttribute("button_name", "add");
 		rd.forward(req, resp);
-		*/
 	}
 	
 	@Override

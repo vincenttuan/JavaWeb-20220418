@@ -22,7 +22,9 @@ private JPAService service = new JPAService();
 		// 根據 id 將 guestbook 資料刪除
 		service.deleteGuestbookById(id);
 		// 重導頁面
-		RequestDispatcher rd = req.getRequestDispatcher("/guestbook/view");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/guestbook_view.jsp");
+		req.setAttribute("guestbooks", service.queryGuestbook());
+		req.setAttribute("button_name", "add");
 		rd.forward(req, resp);
 	}
 	
