@@ -58,4 +58,9 @@ public class JPAService {
 			}
 		}
 	}
+	
+	public void deleteGuestbookById(Integer id) {
+		Guestbook guestbook = getGuestbookById(id);
+		em.remove(guestbook);
+	}
 }
