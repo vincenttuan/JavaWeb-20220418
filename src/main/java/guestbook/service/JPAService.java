@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -30,5 +31,14 @@ public class JPAService {
 		//       select g from guestbook g 失敗 
 		Query query = em.createQuery("select g from Guestbook g"); // JPQL
 		return query.getResultList();
+	}
+	
+	public void addGuestbook(Guestbook guestbook) {
+		synchronized (em) {
+			EntityTransaction etx = em.getTransaction();
+			etx.begin(); // 開始
+			em.persist(guestbook); // 存入 guestbook
+			etx.commit(); // 提交
+		}
 	}
 }
