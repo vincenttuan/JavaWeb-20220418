@@ -25,7 +25,7 @@
 					<th>id</th><th>姓名</th><th>內容</th><th>留言時間</th><th>修改</th><th>刪除</th>
 				</thead>
 				<tbody>
-					
+					${ guestbooks }
 				</tbody>
 			</table>
 		</fieldset>	
