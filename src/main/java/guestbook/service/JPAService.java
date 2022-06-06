@@ -41,4 +41,21 @@ public class JPAService {
 			etx.commit(); // 提交
 		}
 	}
+	
+	public Guestbook getGuestbookById(Integer id) {
+		return em.find(Guestbook.class, id);
+	}
+	
+	public void updateGuestbook(Guestbook guestbook) {
+		synchronized (em) {
+			if (getGuestbookById(guestbook.getId()) != null) {
+				EntityTransaction etx = em.getTransaction();
+				etx.begin(); // 開始
+				// 使用 merge 若該筆不存在會新增, 若該筆存在則修改
+				// 使用 merge 可以在 unbind 的情況下使用
+				em.merge(guestbook); // 存入/修改 guestbook
+				etx.commit(); // 提交
+			}
+		}
+	}
 }
