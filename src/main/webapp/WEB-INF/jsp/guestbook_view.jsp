@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,16 @@
 					<th>id</th><th>姓名</th><th>內容</th><th>留言時間</th><th>修改</th><th>刪除</th>
 				</thead>
 				<tbody>
-					${ guestbooks }
+					<c:forEach var="guestbook" items="${ guestbooks }">
+						<tr>
+							<td>${ guestbook.id }</td>
+							<td>${ guestbook.username }</td>
+							<td>${ guestbook.content }</td>
+							<td>${ guestbook.createtime }</td>
+							<td><a href="/JavaWeb-20220418/guestbook/get?id=${ guestbook.id }">修改</a></td>
+							<td><a href="/JavaWeb-20220418/guestbook/delete?id=${ guestbook.id }">刪除</a></td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</fieldset>	
