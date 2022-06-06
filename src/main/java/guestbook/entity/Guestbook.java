@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "guestbook")
@@ -24,6 +26,7 @@ public class Guestbook implements Serializable {
 	private String content;
 	
 	@Column
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createtime = new Date();
 
 	public Integer getId() {

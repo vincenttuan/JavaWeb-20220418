@@ -16,6 +16,7 @@ public class ViewGuestbook extends HttpServlet {
 	private JPAService service = new JPAService();
 	
 	protected void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 重導頁面
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/guestbook_view.jsp");
 		req.setAttribute("guestbooks", service.queryGuestbook());
 		req.setAttribute("button_name", "add");
