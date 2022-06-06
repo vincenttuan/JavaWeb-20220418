@@ -29,7 +29,9 @@ public class UpdateGuestbook extends HttpServlet {
 		// 修改 guestbook 資料
 		service.updateGuestbook(guestbook);
 		// 重導頁面
-		RequestDispatcher rd = req.getRequestDispatcher("/guestbook/view");
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/guestbook_view.jsp");
+		req.setAttribute("guestbooks", service.queryGuestbook());
+		req.setAttribute("button_name", "add");
 		rd.forward(req, resp);
 	}
 	
