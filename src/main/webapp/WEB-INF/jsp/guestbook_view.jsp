@@ -13,7 +13,7 @@
 	<form class="pure-form" method="post" action="/JavaWeb-20220418/guestbook/${ button_name }">
 		<fieldset>
 			<legend>Guestbook Form</legend>
-			<input type="text" name="id" value=${ id } />
+			<input type="text" name="id" value="${ id }" />
 			姓名: <input type="text" name="username" value="${ username }" placeholder="請輸入 username" /><p /> 
 			內容: <input type="text" name="content" value="${ content }" placeholder="請輸入內容" /><p /> 
 			<button type="submit" class="pure-button pure-button-primary">${ button_name }</button>
