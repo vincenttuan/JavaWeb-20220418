@@ -23,7 +23,7 @@ public class Guestbook {
 	private String content;
 	
 	@Column
-	private Date date = new Date();
+	private Date createtime = new Date();
 
 	public Integer getId() {
 		return id;
@@ -49,18 +49,21 @@ public class Guestbook {
 		this.content = content;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getCreatetime() {
+		return createtime;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
 	}
 
 	@Override
 	public String toString() {
-		return "Guestbook [id=" + id + ", username=" + username + ", content=" + content + ", date=" + date + "]";
+		return "Guestbook [id=" + id + ", username=" + username + ", content=" + content + ", createtime=" + createtime
+				+ "]";
 	}
+
+	
 	
 	
 }
