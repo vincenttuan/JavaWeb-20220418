@@ -60,9 +60,17 @@ public class JPAService {
 	}
 	
 	public void deleteGuestbookById(Integer id) {
-		Guestbook guestbook = getGuestbookById(id);
-		if(guestbook != null) {
-			em.remove(guestbook);
+		synchronized (em) {
+			EntityTransaction etx = em.getTransaction();
+			etx.begin(); // 開始
+			
+			Guestbook guestbook = getGuestbookById(id);
+			if(guestbook != null) {
+				em.remove(guestbook);
+			}
+			
+			etx.commit(); // 提交
 		}
+		
 	}
 }
