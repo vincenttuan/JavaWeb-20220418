@@ -20,12 +20,12 @@ public class GetGuestbook extends HttpServlet {
 	private void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		Guestbook guestbook = service.getGuestbookById(id);
+		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/guestbook_view.jsp");
 		req.setAttribute("guestbooks", service.queryGuestbook());
 		req.setAttribute("button_name", "update"); // 改成 update
-		req.setAttribute("id", guestbook.getId()); // 傳給 jsp 並放到 form 表單中使用
-		req.setAttribute("username", guestbook.getUsername()); // 傳給 jsp 並放到 form 表單中使用
-		req.setAttribute("content", guestbook.getContent()); // 傳給 jsp 並放到 form 表單中使用
+		req.setAttribute("guestbook", guestbook); // 傳給 jsp 並放到 form 表單中使用
+		
 		rd.forward(req, resp);
 	}
 	
