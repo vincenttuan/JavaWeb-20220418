@@ -23,6 +23,7 @@ public class GetGuestbook extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/guestbook_view.jsp");
 		req.setAttribute("guestbooks", service.queryGuestbook());
 		req.setAttribute("button_name", "update"); // 改成 update
+		req.setAttribute("id", guestbook.getId()); // 傳給 jsp 並放到 form 表單中使用
 		req.setAttribute("username", guestbook.getUsername()); // 傳給 jsp 並放到 form 表單中使用
 		req.setAttribute("content", guestbook.getContent()); // 傳給 jsp 並放到 form 表單中使用
 		rd.forward(req, resp);
