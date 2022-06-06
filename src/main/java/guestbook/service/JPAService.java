@@ -26,10 +26,16 @@ public class JPAService {
 	}
 
 	public List<Guestbook> queryGuestbook() {
+		// 強迫將 em 清除/關閉後新建立
+		// 避免快取現象
+		em.clear();
+		em.close();
+		em = emf.createEntityManager();
 		// JPQL 所指的 Guestbook 是 entity 的名字而非 table name guestbook
 		// 所以本題 select g from Guestbook g 成功
 		// select g from guestbook g 失敗
 		Query query = em.createQuery("select g from Guestbook g"); // JPQL
+		//Query query = em.createNativeQuery("select id, username, content, createtime from guestbook", Guestbook.class);
 		return query.getResultList();
 	}
 
@@ -43,6 +49,11 @@ public class JPAService {
 	}
 
 	public Guestbook getGuestbookById(Integer id) {
+		// 強迫將 em 清除/關閉後新建立
+		// 避免快取現象
+		em.clear();
+		em.close();
+		em = emf.createEntityManager();
 		return em.find(Guestbook.class, id);
 	}
 
