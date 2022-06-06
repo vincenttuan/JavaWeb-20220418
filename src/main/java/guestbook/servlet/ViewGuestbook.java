@@ -14,6 +14,7 @@ public class ViewGuestbook extends HttpServlet {
 	
 	protected void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/guestbook_view.jsp");
+		req.setAttribute("button_name", "add");
 		rd.forward(req, resp);
 	}
 	
