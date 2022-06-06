@@ -25,7 +25,10 @@ public class JPAService {
 	}
 	
 	public List<Guestbook> queryGuestbook() {
-		Query query = em.createQuery("select g from guestbook g"); // JPQL
+		// JPQL 所指的 Guestbook 是 entity 的名字而非 table name guestbook
+		// 所以本題 select g from Guestbook g 成功
+		//       select g from guestbook g 失敗 
+		Query query = em.createQuery("select g from Guestbook g"); // JPQL
 		return query.getResultList();
 	}
 }
