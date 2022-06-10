@@ -57,17 +57,32 @@
 <body style="padding: 20px">
 
 	<form class="pure-form">
-		Id: <input type="number" id="id" name="id" value="1" /><p />
-		Name: <input type="text" id="name" name="name" value="John" /><p /> 
-		Age: <input type="number" id="age" name="age" value="18" /><p />
-		<button type="button" onclick="doGet()" class="pure-button pure-button-primary">
-			GET</button>
-		<button type="button" onclick="doPost()" class="pure-button pure-button-primary">
-			POST</button>
-		<button type="button" onclick="doPut()" class="pure-button pure-button-primary">
-			PUT</button>
-		<button type="button" onclick="doDelete()" class="pure-button pure-button-primary">
-			DELETE</button>
+		<fieldset>
+			<legend>Person form</legend>
+			<table>
+				<tr>
+					<td align="right">Id: </td>
+					<td><input type="number" id="id" name="id" value="1" /></td>	
+				</tr>
+				<tr>
+					<td align="right">Name: </td>
+					<td><input type="text" id="name" name="name" value="John" /></td>	
+				</tr>
+				<tr>
+					<td align="right">Age: </td>
+					<td><input type="number" id="age" name="age" value="18" /></td>	
+				</tr>
+			</table>
+			<p />
+			<button type="button" onclick="doGet()" class="pure-button pure-button-primary">
+				GET</button>
+			<button type="button" onclick="doPost()" class="pure-button pure-button-primary">
+				POST</button>
+			<button type="button" onclick="doPut()" class="pure-button pure-button-primary">
+				PUT</button>
+			<button type="button" onclick="doDelete()" class="pure-button pure-button-primary">
+				DELETE</button>
+		</fieldset>		
 	</form>
 	<pre>
 		<div id="demo"></div>
