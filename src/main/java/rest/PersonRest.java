@@ -15,6 +15,8 @@ public class PersonRest extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter out = resp.getWriter();
+		
+		
 		out.println("HTTP method: " + req.getMethod());
 		out.println("Path info: " + req.getPathInfo());
 		out.println("ParameterMap: " + req.getParameterMap());
