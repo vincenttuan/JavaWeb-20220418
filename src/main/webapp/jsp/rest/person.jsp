@@ -57,6 +57,9 @@
 <body style="padding: 20px">
 
 	<form class="pure-form">
+		Id: <input type="number" id="id" name="id" value="1" /><p />
+		Name: <input type="text" id="name" name="name" value="John" /><p /> 
+		Age: <input type="number" id="age" name="age" value="18" /><p />
 		<button type="button" onclick="doGet()" class="pure-button pure-button-primary">
 			GET</button>
 		<button type="button" onclick="doPost()" class="pure-button pure-button-primary">
