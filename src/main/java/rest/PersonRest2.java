@@ -26,11 +26,29 @@ public class PersonRest2 extends HttpServlet {
 		BufferedReader br = new BufferedReader(isr);
 		String args = br.readLine();
 		out.println(args);
-		String[] data = args.split("&");
-		for(String rows : data) {
-			String[] row = rows.split("=");
-			//          name           value
-			out.println(row[0] + "=" + row[1]);
+		Integer id = null;
+		String name = null;
+		Integer age = null;
+		if(args == null) {
+			id = Integer.parseInt(req.getParameter("id"));
+			name = req.getParameter("name");
+			age = Integer.parseInt(req.getParameter("age"));
+		} else {
+			String[] data = args.split("&");
+			for(String rows : data) {
+				String[] row = rows.split("=");
+				switch(row[0]) {
+					case "id":
+						id = Integer.parseInt(row[1]);
+						break;
+					case "name":
+						name = row[1];
+						break;
+					case "age":
+						age = Integer.parseInt(row[1]);
+						break;
+				}
+			}
 		}
 	}
 	
