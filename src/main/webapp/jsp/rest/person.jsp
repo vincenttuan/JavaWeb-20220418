@@ -9,7 +9,7 @@
 </head>
 <body style="padding: 20px">
 
-	<form class="pure-form" method="get" action="/JavaWeb-20220418/rest/person">
+	<form class="pure-form" method="post" action="/JavaWeb-20220418/rest/person">
 		<button type="submit" class="pure-button pure-button-primary">
 			Submit	
 		</button>
