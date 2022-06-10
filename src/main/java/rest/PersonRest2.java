@@ -12,8 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jpa.servlet.JPAService;
+
 @WebServlet("/rest2/*")
 public class PersonRest2 extends HttpServlet {
+	
+	private JPAService jpaService;
+	
+	@Override
+	public void init() throws ServletException {
+		jpaService = new JPAService();
+	}
 	
 	protected void doHandle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter out = resp.getWriter();
@@ -53,6 +62,21 @@ public class PersonRest2 extends HttpServlet {
 		out.println("id = " + id);
 		out.println("name = " + name);
 		out.println("age = " + age);
+		
+		switch (req.getMethod()) {
+			case "GET":
+				
+				break;
+	
+			case "POST":
+				break;
+				
+			case "PUT":
+				break;
+				
+			case "DELETE":
+				break;
+		}
 	}
 	
 	@Override
