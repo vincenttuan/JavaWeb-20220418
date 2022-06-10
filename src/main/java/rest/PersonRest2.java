@@ -50,6 +50,9 @@ public class PersonRest2 extends HttpServlet {
 				}
 			}
 		}
+		out.println("id = " + id);
+		out.println("name = " + name);
+		out.println("age = " + age);
 	}
 	
 	@Override
