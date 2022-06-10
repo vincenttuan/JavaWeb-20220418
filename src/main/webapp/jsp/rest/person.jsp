@@ -4,9 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css">
+<title>Person</title>
 </head>
-<body>
+<body style="padding: 20px">
+
+	<form class="pure-form" method="get" action="/JavaWeb-20220418/rest/person">
+		<button type="submit" class="pure-button pure-button-primary">
+			Submit	
+		</button>
+	</form>
 
 </body>
 </html>
