@@ -9,9 +9,18 @@
 </head>
 <body style="padding: 20px">
 
-	<form class="pure-form" method="post" action="/JavaWeb-20220418/rest/person">
-		<button type="submit" class="pure-button pure-button-primary">
-			Submit	
+	<form class="pure-form">
+		<button type="button" class="pure-button pure-button-primary">
+			GET	
+		</button>
+		<button type="button" class="pure-button pure-button-primary">
+			POST	
+		</button>
+		<button type="button" class="pure-button pure-button-primary">
+			PUT
+		</button>
+		<button type="button" class="pure-button pure-button-primary">
+			DELETE	
 		</button>
 	</form>
 
