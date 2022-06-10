@@ -49,10 +49,17 @@
 		xhttp.onload = function() {
 			document.getElementById("demo").innerHTML = this.responseText;
 		}
+		// 表單資料
+		var id = document.getElementById("id").value;
+		var name = document.getElementById("name").value;
+		var age = document.getElementById("age").value;
+		// 組合參數
+		var args = "id=" + id + "&name=" + name + "&age=" + age;
 		// 開啟連線
 		xhttp.open("PUT", "/JavaWeb-20220418/rest/person", true); // true 非同步, false 同步
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		// 傳送
-		xhttp.send();
+		xhttp.send(args);
 	}
 	function doDelete() {
 		const xhttp = new XMLHttpRequest();
@@ -60,10 +67,17 @@
 		xhttp.onload = function() {
 			document.getElementById("demo").innerHTML = this.responseText;
 		}
+		// 表單資料
+		var id = document.getElementById("id").value;
+		var name = document.getElementById("name").value;
+		var age = document.getElementById("age").value;
+		// 組合參數
+		var args = "id=" + id + "&name=" + name + "&age=" + age;
 		// 開啟連線
 		xhttp.open("DELETE", "/JavaWeb-20220418/rest/person", true); // true 非同步, false 同步
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		// 傳送
-		xhttp.send();
+		xhttp.send(args);
 	}
 </script>
 </head>
