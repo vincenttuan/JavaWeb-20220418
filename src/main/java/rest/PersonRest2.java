@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import jpa.entity.Person;
 import jpa.servlet.JPAService;
 
 @WebServlet("/rest2/*")
@@ -63,18 +64,27 @@ public class PersonRest2 extends HttpServlet {
 		out.println("name = " + name);
 		out.println("age = " + age);
 		
+		Person person = null;
 		switch (req.getMethod()) {
 			case "GET":
-				
+				person = jpaService.getPersonById(id);
+				out.println(person);
 				break;
 	
 			case "POST":
+				person = new Person();
+				person.setId(id);
+				person.setName(name);
+				person.setAge(age);
+				jpaService.addPerson(person);
 				break;
 				
 			case "PUT":
+				
 				break;
 				
 			case "DELETE":
+				
 				break;
 		}
 	}
