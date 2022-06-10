@@ -2,6 +2,7 @@ package rest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +22,9 @@ public class PersonRest extends HttpServlet {
 		out.println("Path info: " + req.getPathInfo());
 		out.println("ParameterMap: " + req.getParameterMap());
 		out.println("ParameterMap size: " + req.getParameterMap().size());
-		
+		req.getParameterMap()
+			.entrySet()
+			.forEach(map -> out.println(map.getKey() + ":" + map.getValue()[0]));
 	}
 
 	@Override
@@ -31,6 +34,9 @@ public class PersonRest extends HttpServlet {
 		out.println("Path info: " + req.getPathInfo());
 		out.println("ParameterMap: " + req.getParameterMap());
 		out.println("ParameterMap size: " + req.getParameterMap().size());
+		req.getParameterMap()
+			.entrySet()
+			.forEach(map -> out.println(map.getKey() + ":" + map.getValue()[0]));
 	}
 
 	@Override
