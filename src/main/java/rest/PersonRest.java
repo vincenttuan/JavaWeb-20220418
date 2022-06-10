@@ -46,6 +46,9 @@ public class PersonRest extends HttpServlet {
 		out.println("Path info: " + req.getPathInfo());
 		out.println("ParameterMap: " + req.getParameterMap());
 		out.println("ParameterMap size: " + req.getParameterMap().size());
+		req.getParameterMap()
+			.entrySet()
+			.forEach(map -> out.println(map.getKey() + ":" + map.getValue()[0]));
 	}
 	
 	@Override
@@ -55,6 +58,9 @@ public class PersonRest extends HttpServlet {
 		out.println("Path info: " + req.getPathInfo());
 		out.println("ParameterMap: " + req.getParameterMap());
 		out.println("ParameterMap size: " + req.getParameterMap().size());
+		req.getParameterMap()
+			.entrySet()
+			.forEach(map -> out.println(map.getKey() + ":" + map.getValue()[0]));
 	}
 
 	
