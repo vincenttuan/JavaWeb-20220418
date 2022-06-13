@@ -15,6 +15,7 @@
 			var loginBtn = document.getElementById("loginBtn");
 			var chatRoomForm = document.getElementById("chatRoomForm");
 			var messageInput = document.getElementById("messageInput");
+			var count = document.getElementById("count");
 			
 			// 註冊元件的監聽器
 			loginBtn.addEventListener("click", function() {
@@ -35,6 +36,8 @@
 				// 連線成功
 				webSocket.onopen = function(event) {
 					console.log('連線成功');
+					// 關閉 username 不可輸入
+					username.disabled = true;
 					// 關閉 loginBtn
 					loginBtn.disabled = true;
 					var message = {
@@ -54,8 +57,12 @@
 					var messageObject = JSON.parse(event.data); 
 					console.log(messageObject); // 訊息資料
 					//messageDisplay.innerHTML += messageObject.username + " 說: " +  messageObject.message + "<br>";
-					var content = messageObject.username + " 說: " +  messageObject.message + "<br>";
-					messageDisplay.insertAdjacentHTML('afterbegin', content);
+					if(messageObject.username == '_count') {
+						count.innerHTML = messageObject.message;
+					} else {
+						var content = messageObject.username + " 說: " +  messageObject.message + "<br>";
+						messageDisplay.insertAdjacentHTML('afterbegin', content);
+					}
 				};
 			}
 			
@@ -78,7 +85,7 @@
 <body style="padding: 10px">
 	<form class="pure-form" id="chatRoomForm" onsubmit="return false;">
 		<fieldset>
-			<legend>WebSocket Client</legend>
+			<legend>WebSocket Client (人數: <span id="count">0</span>)</legend>
 			<input type="text" id="username" placeholder="請輸入名稱">
 			<button type="button" class="pure-button pure-button-primary" id="loginBtn">
 				Socket 登入
