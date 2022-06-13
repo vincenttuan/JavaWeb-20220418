@@ -27,6 +27,7 @@
 				// 連線成功
 				webSocket.onopen = function(event) {
 					console.log('連線成功');
+					
 				};
 				// 連線失敗
 				webSocket.onerror = function(event) {
@@ -49,6 +50,7 @@
 	<form class="pure-form">
 		<fieldset>
 			<legend>WebSocket Client</legend>
+			<input type="text" id="username" placeholder="請輸入名稱">
 			<button type="button" class="pure-button pure-button-primary" id="loginBtn">
 				Socket 登入
 			</button>
