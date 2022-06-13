@@ -13,10 +13,17 @@
 			// 獲取 DOM 元件
 			var username = document.getElementById("username");
 			var loginBtn = document.getElementById("loginBtn");
+			var chatRoomForm = document.getElementById("chatRoomForm");
+			var messageInput = document.getElementById("messageInput");
 			
 			// 註冊元件的監聽器
 			loginBtn.addEventListener("click", function() {
 				setWebSocket();
+			});
+			
+			// Form 表單內的 submit button 監聽 
+			chatRoomForm.addEventListener("submit", function() {
+				sendMessage();
 			});
 			
 			// 設置 WebSocket
@@ -54,18 +61,32 @@
 			
 			// 傳送訊息
 			function sendMessage() {
-				
+				// 檢查 WebSocket 的狀態
+				if(webSocket) {
+					var message = {
+						username: username.value,
+						message: messageInput.value
+					};
+					webSocket.send(JSON.stringify(message));
+				} else {
+					alert('Socket 尚未登入');
+				}
 			}
 		}
 	</script>
 </head>
 <body style="padding: 10px">
-	<form class="pure-form">
+	<form class="pure-form" id="chatRoomForm" onsubmit="return false;">
 		<fieldset>
 			<legend>WebSocket Client</legend>
 			<input type="text" id="username" placeholder="請輸入名稱">
 			<button type="button" class="pure-button pure-button-primary" id="loginBtn">
 				Socket 登入
+			</button>
+			<p />
+			<input type="text" id="messageInput" placeholder="請輸入訊息">
+			<button type="submit" class="pure-button pure-button-primary">
+				送出訊息
 			</button>
 		</fieldset>
 	</form>
