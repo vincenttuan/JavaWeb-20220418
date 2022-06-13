@@ -11,6 +11,7 @@
 		window.onload = function() {
 			var webSocket = null;
 			// 獲取 DOM 元件
+			var username = document.getElementById("username");
 			var loginBtn = document.getElementById("loginBtn");
 			
 			// 註冊元件的監聽器
@@ -29,6 +30,12 @@
 					console.log('連線成功');
 					// 關閉 loginBtn
 					loginBtn.disabled = true;
+					var message = {
+						username: username.value,
+						message: '大家好! 我進來了~~'
+					};
+					// JSON.stringfly 將 message 物件傳成 json 字串
+					webSocket.send(JSON.stringify(message));
 				};
 				// 連線失敗
 				webSocket.onerror = function(event) {
