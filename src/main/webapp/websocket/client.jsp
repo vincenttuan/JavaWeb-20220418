@@ -38,7 +38,14 @@
 		}
 	</script>
 </head>
-<body>
-
+<body style="padding: 10px">
+	<form class="pure-form">
+		<fieldset>
+			<legend>WebSocket Client</legend>
+			<button type="button" class="pure-button pure-button-primary" id="loginBtn">
+				Socket 登入
+			</button>
+		</fieldset>
+	</form>
 </body>
 </html>
