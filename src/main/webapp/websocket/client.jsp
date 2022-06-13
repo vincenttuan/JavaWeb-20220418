@@ -41,9 +41,12 @@
 				webSocket.onerror = function(event) {
 					console.log('連線失敗');
 				};
-				// 傳送訊息
+				// 接收訊息
 				webSocket.onmessage = function(event) {
-					console.log(event.data); // 訊息資料
+					// JSON.parse 將 json 字串變成物件, 以便分析
+					var messageObject = JSON.parse(event.data); 
+					console.log(messageObject); // 訊息資料
+					messageDisplay.innerHTML += messageObject.username + " 說: " +  messageObject.message + "<br>";
 				};
 			}
 			
@@ -64,5 +67,6 @@
 			</button>
 		</fieldset>
 	</form>
+	<div id="messageDisplay"></div>
 </body>
 </html>
