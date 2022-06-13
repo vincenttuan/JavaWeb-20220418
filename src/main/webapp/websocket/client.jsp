@@ -27,7 +27,8 @@
 				// 連線成功
 				webSocket.onopen = function(event) {
 					console.log('連線成功');
-					
+					// 關閉 loginBtn
+					loginBtn.disabled = true;
 				};
 				// 連線失敗
 				webSocket.onerror = function(event) {
