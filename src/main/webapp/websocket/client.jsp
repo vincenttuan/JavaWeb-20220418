@@ -10,6 +10,13 @@
 		// 當網頁元件載入完成之後才執行
 		window.onload = function() {
 			var webSocket = null;
+			// 獲取 DOM 元件
+			var loginBtn = document.getElementById("loginBtn");
+			
+			// 註冊元件的監聽器
+			loginBtn.addEventListener("click", function() {
+				setWebSocket();
+			});
 			
 			// 設置 WebSocket
 			function setWebSocket() {
