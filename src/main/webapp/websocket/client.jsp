@@ -46,7 +46,9 @@
 					// JSON.parse 將 json 字串變成物件, 以便分析
 					var messageObject = JSON.parse(event.data); 
 					console.log(messageObject); // 訊息資料
-					messageDisplay.innerHTML += messageObject.username + " 說: " +  messageObject.message + "<br>";
+					//messageDisplay.innerHTML += messageObject.username + " 說: " +  messageObject.message + "<br>";
+					var content = messageObject.username + " 說: " +  messageObject.message + "<br>";
+					messageDisplay.insertAdjacentHTML('afterbegin', content);
 				};
 			}
 			
