@@ -13,7 +13,7 @@
 			
 			// 設置 WebSocket
 			function setWebSocket() {
-				var url = 'ws://' + window.location.hostname + ':8080/${pageContext.request.contextPath}/websockettest'
+				var url = 'ws://' + window.location.hostname + ':8080${pageContext.request.contextPath}/websockettest'
 				// 開始 WebSocket 連線
 				webSocket = new WebSocket(url);
 				// 以下就可以開始偵測 WebSocket 的各種事件
