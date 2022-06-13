@@ -25,6 +25,15 @@ public class WebSocketEndpointTest {
         System.out.println("有連線進來: " + session.getId());
         sessions.add(session);
         System.out.println("目前連線數量: " + sessions.size());
+        // 目前在線人數廣播
+        String message = "{'username': '_count', 'message': %d}";
+        message = String.format(message, sessions.size());
+        // 廣播
+    	for(Session s : sessions) {
+    		if(s.isOpen()) {
+    			s.getAsyncRemote().sendText(message);
+    		}
+    	}
     }
     
     @OnMessage
@@ -44,5 +53,14 @@ public class WebSocketEndpointTest {
         System.out.println("關閉連線: " + session.getId());
         sessions.remove(session); 
         System.out.println("目前連線數量: " + sessions.size());
+        // 目前在線人數廣播
+        String message = "{'username': '_count', 'message': %d}";
+        message = String.format(message, sessions.size());
+        // 廣播
+    	for(Session s : sessions) {
+    		if(s.isOpen()) {
+    			s.getAsyncRemote().sendText(message);
+    		}
+    	}
     }
 }
