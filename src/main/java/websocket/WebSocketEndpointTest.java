@@ -30,7 +30,13 @@ public class WebSocketEndpointTest {
     @OnMessage
     public void onMessage(String message, Session session) throws IOException,
             InterruptedException, EncodeException {
-    	
+    	System.out.println(session.getId() + " 說: " + message);
+    	// 廣播
+    	for(Session s : sessions) {
+    		if(s.isOpen()) {
+    			s.getAsyncRemote().sendText(message);
+    		}
+    	}
     }
     
     @OnClose
