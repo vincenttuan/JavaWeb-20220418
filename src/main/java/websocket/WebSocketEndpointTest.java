@@ -26,7 +26,7 @@ public class WebSocketEndpointTest {
         sessions.add(session);
         System.out.println("目前連線數量: " + sessions.size());
         // 目前在線人數廣播
-        String message = "{'username': '_count', 'message': %d}";
+        String message = "{\"username\": \"_count\", \"message\": %d}";
         message = String.format(message, sessions.size());
         // 廣播
     	for(Session s : sessions) {
@@ -54,7 +54,7 @@ public class WebSocketEndpointTest {
         sessions.remove(session); 
         System.out.println("目前連線數量: " + sessions.size());
         // 目前在線人數廣播
-        String message = "{'username': '_count', 'message': %d}";
+        String message = "{\"username\": \"_count\", \"message\": %d}";
         message = String.format(message, sessions.size());
         // 廣播
     	for(Session s : sessions) {
